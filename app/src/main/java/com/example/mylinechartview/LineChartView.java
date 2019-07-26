@@ -35,6 +35,8 @@ public class LineChartView extends View {
     public float START_Y = 0;
     public final static int PADDING_TOP = 10;
     public final static int PADDING_BOTTOM = 10;
+    public final static int PADDING_LEFT = 20;
+    public final static int PADDING_RIGHT = 20;
 
     private float mChartHeight; //表格高度
     private float mChartWidth; //表格宽度
@@ -89,10 +91,10 @@ public class LineChartView extends View {
         mScreenHeight = metric.heightPixels; // 屏幕高度（像素）
 
         mDataList = new ArrayList<>();
-        mChartWidth = mScreenWidth - dp2px(mContext,40);
+        mChartWidth = mScreenWidth - dp2px(mContext,PADDING_LEFT+PADDING_RIGHT);
         mItemHeight = dp2px(mContext,35);
         mChartHeight = mItemHeight*ROW_COUNT;
-        START_X = dp2px(mContext,20);
+        START_X = dp2px(mContext,PADDING_LEFT);
 
         mLinePaint = new Paint();
         mLinePaint.setAntiAlias(true);
