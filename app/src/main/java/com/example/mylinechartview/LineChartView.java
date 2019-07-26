@@ -129,6 +129,9 @@ public class LineChartView extends View {
 
         mPath = new Path();
         mShaderPath = new Path();
+
+        mShader = new LinearGradient(0, 0, 0, mChartHeight, shadeColors, null, Shader.TileMode.CLAMP);
+        mShaderPaint.setShader(mShader);
     }
 
     public void setData(List<String> data, List<String> xCoordinateList) {
@@ -239,9 +242,6 @@ public class LineChartView extends View {
         mShaderPath.lineTo(START_X + mItemWidth * (COLUMN_COUNT - 1), START_Y + mChartHeight - mItemHeight * 1 + PADDING_TOP
                 - ((Float.valueOf(mDataList.get(COLUMN_COUNT - 1)) - mMinData) * perHeight));
         mShaderPath.lineTo(START_X + mChartWidth, START_Y + mChartHeight + PADDING_TOP);
-
-        mShader = new LinearGradient(0, 0, 0, mChartHeight, shadeColors, null, Shader.TileMode.CLAMP);
-        mShaderPaint.setShader(mShader);
 
         canvas.drawPath(mShaderPath, mShaderPaint);
 
